@@ -42,7 +42,7 @@ class AppBarExample extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute<void>(
                   builder: (BuildContext context) {
-                    return Scaffold(
+                    return const Scaffold(
                       body: SettingsPage(), // Call the SettingsPage widget
                     );
                   },
@@ -55,10 +55,10 @@ class AppBarExample extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
-          iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: TextStyle(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
+          titleTextStyle: const TextStyle(color: Colors.white),
         ),
-        body: NewsList(),
+        body: const NewsList(),
       ),
     );
   }

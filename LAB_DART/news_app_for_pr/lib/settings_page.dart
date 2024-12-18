@@ -7,11 +7,17 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 200.0), // Add 16.0 padding to both sides
-      width: MediaQuery.of(context).size.width * 0.75, // Set the width to 75% of the device's width
+      //width: MediaQuery.of(context).size.width * 0.75, // Set the width to 75% of the device's width
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Бюро'),
-          leading: const Icon(Icons.abc),
+          title: const Text('Настройки'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back), // Replace 'abc' with 'arrow_back'
+            tooltip: 'Назад',
+            onPressed: () {
+              Navigator.pop(context); // Navigate back to the main page
+            },
+          ),
           actions: <Widget>[
             IconButton(
               icon: const Icon(Icons.add_alert),
@@ -19,22 +25,6 @@ class SettingsPage extends StatelessWidget {
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('This is a snackbar')));
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.settings), // Change the icon to settings icon
-              tooltip: 'Go to the settings page',
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute<void>(
-                  builder: (BuildContext context) {
-                    return Scaffold(
-                      appBar: AppBar(
-                        title: const Text('Settings'),
-                      ),
-                      body: SettingsPage(), // Call the SettingsPage widget
-                    );
-                  },
-                ));
               },
             ),
           ],
@@ -47,13 +37,14 @@ class SettingsPage extends StatelessWidget {
         ),
         body: Center(
           child: Card(
-            margin: const EdgeInsets.all(20),
+             
+            margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0), // Adjust the horizontal margin
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
               side: const BorderSide(color: Colors.black, width: 2), // Add border
             ),
             child: Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0), // Adjust the horizontal padding
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -77,11 +68,12 @@ class SettingsPage extends StatelessWidget {
   Widget buildThemeSetting() {
     return Row(
       children: <Widget>[
-        Text('Theme: '),
+        const Text('Theme: '),
         Switch(
           value: false, // Replace with the current setting value
           onChanged: (value) {
             // Handle theme setting change action here
+            
           },
         ),
       ],
@@ -91,7 +83,7 @@ class SettingsPage extends StatelessWidget {
   Widget buildOtherSetting() {
     return Row(
       children: <Widget>[
-        Text('Other Setting: '),
+        const Text('Other Setting: '),
         Switch(
           value: false, // Replace with the current setting value
           onChanged: (value) {
